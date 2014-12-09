@@ -564,46 +564,49 @@ var App = {
 };
 
 App.portfolio = {
-	
+
 	start: function() {
-		
+
 		this.bind();
-		
+
 	},
-	
+
 	bind: function() {
-		
-		$("#portfolio, #touchToo").on("click", '.item', function() {
+
+		$("#payment, #touchToo").on("click", '.payment, .item', function() {
 			if($("html").hasClass("open") || App.portfolio.open($(this))) {
-				return true;  
+				return true;
 			}else{
 				return false;
 			}
 		});
-		
+
 		$(document).on("click", ".close-project", function() {
 			App.portfolio.close();
 		});
-		
+
 	},
-	
+
 	open: function(c) {
-		
+
 		$("html").css({
 			overflow : "hidden"
 		}).addClass("open");
-		
+
 		var g = new TimelineLite();
 		var d = $(window);
-		
+
 		var a = [], e = $("#portfolio-box");
+		if(c.offset()!=null)
 			a.top = c.offset().top - $(window).scrollTop();
-			a.left = c.offset().left;
-			a.lar = c.width();
-			a.alt = c.height();
-			a.puloLeft = $(d).width() / 2 - a.lar / 2 - a.left;
-			a.puloTop = $(d).height() / 2 - a.alt / 2 - a.top;
-		
+		else
+			a.top = 0;
+		a.left = c.offset().left;
+		a.lar = c.width();
+		a.alt = c.height();
+		a.puloLeft = $(d).width() / 2 - a.lar / 2 - a.left;
+		a.puloTop = $(d).height() / 2 - a.alt / 2 - a.top;
+
 		e.animate({
 			top : a.top,
 			left : a.left,
@@ -612,14 +615,14 @@ App.portfolio = {
 		}, 0, function() {
 			e.addClass('visible');
 		});
-		
+
 		c.addClass("aberto").animate({
 			opacity : 1
 		}, {
 			duration : 300,
 			complete : function() {
 				c.parent().removeClass("animando");
-				
+
 				g.to(e, 0.5, {
 					x : a.puloLeft,
 					y : a.puloTop,
@@ -636,24 +639,24 @@ App.portfolio = {
 					y : -a.top,
 					ease : "Circ.easeInOut",
 					onComplete : function() {
-						
+
 						$('#portfolio-box .inner').fadeIn();
-						
+
 						$('#portfolio-box').css('overflow-y', 'scroll');
-						
+
 						$('#portfolio-box').find('.spinner').css('opacity', 0);
-						
+
 						var projectUrl = (typeof c.attr('href') !== 'undefined') ? c.attr('href') : '#' ;
-						
+
 						$.ajax({
 							url: projectUrl,
 							context: document.body,
 							success: function(data) {
-								
+
 								$('#portfolio-box .inner').empty().append(data);
-								
+
 								App.owlCarousel();
-								
+
 							}
 						});
 					}
@@ -661,34 +664,39 @@ App.portfolio = {
 			}
 		});
 	},
-	
+
 	close: function() {
-		
+
 		setTimeout(function() {
 			$('#portfolio-box').find('.spinner').animate({'opacity': 1}, 100);
 		}, 450);
-		
+
 		$('#portfolio-box').css('overflow-y', 'hidden');
-		
+
 		$("html").css({
 			overflow : "auto"
 		});
-		
-		if($("html").hasClass("open")) {
-			
-			$("#portfolio-box .inner").fadeOut(function() {
-				
-				var a = [], c = $("#portfolio-box"), d = c, g = new TimelineLite(), f = $("#portfolio .aberto").closest('li');
 
-				if(f.offset() == null) f = $("#touchToo");
-				
-				a.top = f.offset().top - $(window).scrollTop();
-				a.left = f.offset().left;
+		if($("html").hasClass("open")) {
+
+			$("#portfolio-box .inner").fadeOut(function() {
+
+				var a = [], c = $("#portfolio-box"), d = c, g = new TimelineLite(), f = $("#payment .aberto").closest('li');
+
+				if(c.offset()!=null)
+					a.top = c.offset().top - $(window).scrollTop();
+				else
+					a.top = 0;
+				if(f.offset()!=null)
+					a.left = f.offset().left;
+				else
+					a.left = 0;
+
 				a.lar = f.width();
 				a.alt = f.height();
 				a.puloLeft = $(d).width() / 2 - a.lar / 2 - a.left;
 				a.puloTop = $(d).height() / 2 - a.alt / 2 - a.top;
-				
+
 				c.css({
 					"background-image" : ""
 				}).removeClass("zindex");
@@ -710,11 +718,11 @@ App.portfolio = {
 					ease : "Circ.easeInOut",
 					delay : 0.1,
 					onComplete : function() {
-						
+
 						f.removeClass("animando").removeClass("projetoAberto");
 						$("html").removeClass("open");
 						c.removeClass('visible');
-						
+
 						setTimeout(function() {
 							c.css({
 								width:0,
@@ -726,25 +734,25 @@ App.portfolio = {
 			});
 		}
 	},
-	
+
 	changeProject: function(e) {
-		
+
 		projectUrl = (typeof e.attr('href') !== 'undefined') ? e.attr('href') : '#';
-		
+
 		$.ajax({
 			url: projectUrl,
 			context: document.body,
 			success: function(data) {
-				
+
 				$('#portfolio-box .inner').fadeOut(300, function() {
 					$('#portfolio-box .inner').empty().append(data).fadeIn(300);
 				});
-				
+
 				App.owlCarousel();
-				
+
 			}
 		});
-		
+
 	}
 };
 
