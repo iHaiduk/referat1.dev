@@ -42,6 +42,16 @@ var App = {
 		App.sticky();
 		// init the portfolio
 		App.portfolio.start();
+
+		$("#carousel .colored").click(function(){
+			$.pgwModal({
+				url: '/html/_payments.html',
+				loadingContent: '<span style="text-align:center">Loading in progress</span>',
+				closable: false,
+				titleBar: false,
+				maxWidth: "80%"
+			});
+		});
 		
 	},
 	
@@ -122,7 +132,7 @@ var App = {
 		
 		if($('.owl').length) {
 			$(".owl").owlCarousel({
-				autoPlay : 15000,
+				autoPlay : 10000,
 				navigation:false,
 				paginationSpeed : 1000,
 				singleItem : true,
@@ -185,7 +195,7 @@ var App = {
 	
 	slideText: function(index) {
 		
-		$('.slide-text').stop(true,true).animate({'top': (index-1)*-110}, 300, 'easeOutExpo');
+		$('.slide-text').stop(true,true).animate({'top': (index-1)*-185}, 300, 'easeOutExpo');
 		
 	},
 	
@@ -573,7 +583,7 @@ App.portfolio = {
 
 	bind: function() {
 
-		$("#payment, #touchToo").on("click", '.payment, .item', function() {
+		/*$("#payment, #touchToo, #carousel").on("click", '.payment, .item, .colored', function() {
 			if($("html").hasClass("open") || App.portfolio.open($(this))) {
 				return true;
 			}else{
@@ -583,7 +593,7 @@ App.portfolio = {
 
 		$(document).on("click", ".close-project", function() {
 			App.portfolio.close();
-		});
+		});*/
 
 	},
 
@@ -650,6 +660,7 @@ App.portfolio = {
 
 						$.ajax({
 							url: projectUrl,
+							async:      true,
 							context: document.body,
 							success: function(data) {
 

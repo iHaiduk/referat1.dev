@@ -18,7 +18,7 @@ This file contains all styles for responsive layout
 	
 	#header li.center {display:none;}
 	
-	#core .core-values li .core {background-color:#eee !important;}
+	#core .core-values li .core {background-color:#eee;}
 	#core .core-values li .fa {color:#000!important;}
 	
 	.review .left {width:100%;margin:0;}
@@ -92,13 +92,18 @@ This file contains all styles for responsive layout
 	.capture-img {height:auto;width:100%;}
 	
 	.wrap.youtube-wrap {margin-left:-384px;}
-	
+	#call{right: 38%; color: #ffffff;}
+	.sticky #info, .sticky #call{
+		display: inline; color: #ffffff;
+	}
 }
 
 /*----------------------------------------------------*/
 /*	1.	Between 1041px and 800px
 /*----------------------------------------------------*/
 @media only screen and (max-width: 800px) {
+	#info{left: 57%; color: #ffffff;}
+	#call{right: 52%; color: #ffffff;}
 	
 	.page-title {font-size:35px;}
 	.page-subtitle {font-size:15px;}
@@ -169,10 +174,18 @@ This file contains all styles for responsive layout
 	.wrap.youtube-wrap {margin-left:-200px;}
 	
 	.youtube-wrap {display:none;}
+	.sticky #info, .sticky #call{
+		display: inline;
+	}
 }
 
 @media only screen and (max-width: 600px) {
 	#portfolio li {width:100%;}
+	#info{left: 47%; color: #ffffff;}
+	#call, .sticky #call{display: none}
+	.sticky #info{
+		display: inline;
+	}
 }
 
 /*----------------------------------------------------*/
@@ -201,4 +214,14 @@ This file contains all styles for responsive layout
 	.wrap.youtube-wrap {display:none;left:0;bottom:0;top:auto;margin:0;}
 	#youtube-controls h2, #youtube-controls h3 {display:none;}
 	#youtube-controls {margin:0;}
+	#call, .sticky #call{display: none}
+	#mobile {
+		font-size: 1.2em;
+		margin: 17px 0 0 11px;
+	}
+	#info {
+		left: 33%;
+		margin-top: 4px;
+		color: #ffffff;
+	}
 }
