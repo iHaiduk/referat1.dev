@@ -200,7 +200,7 @@ section.page  {
 }
 
 #header.sticky #navigation li span.border  {
-	background-color: #ef6661;
+	background-color: #FF7908;
 }
 
 #header.sticky #logo .label  {
@@ -362,7 +362,7 @@ section.page  {
 	-webkit-backface-visibility: hidden;
 }
 #carousel .buttons_p .btn-bt.default:hover {
-	background: #ef6661;
+	background: #FF7908;
 	border-color: rgba(0,0,0,0);
 }
 
@@ -924,7 +924,7 @@ section.page  {
 
 #portfolio .item .over h3  {
 	color: #fff;
-	font-size: 18px;
+	font-size: 16px;
 	font-weight: 300;
 	padding: 13px 50px;
 	box-sizing: border-box;
@@ -946,7 +946,7 @@ section.page  {
 	width: 40px;
 	height: 40px;
 	margin-left: -20px;
-	background-color: #ef6661;
+	background-color: #FF7908;
 	z-index: 6;
 }
 
@@ -978,6 +978,9 @@ section.page  {
 
 #portfolio li:nth-child(4n+4) .item  {
 	z-index: 1;
+}
+#portfolio .list.rb-grid {
+	margin: -60px 0 60px 0;
 }
 
 
@@ -1030,7 +1033,7 @@ section.page  {
 
 .facts strong  {
 	font-size: 45px;
-	color: #ef6661;
+	color: #FF7908;
 	display: block;
 	line-height: 100%;
 }
@@ -1264,7 +1267,7 @@ section.page  {
 }
 
 #core .core-values li:hover > .core  {
-	background-color: #ef6661;
+	background-color: #FF7908;
 }
 
 #core .core-values li:hover > .fa  {
@@ -1285,25 +1288,25 @@ section.page  {
 	display: inline-block;
 	padding: 10px 30px;
 	margin-bottom: 30px;
-	background-color: #ef6661;
+	background-color: #FF7908; /* FF7908 */
 	color: #fff;
-	box-shadow: 0 4px 0 #ca4641;
-	-moz-box-shadow: 0 4px 0 #ca4641;
-	-webkit-box-shadow: 0 4px 0 #ca4641;
+	box-shadow: 0 4px 0 #e87408;
+	-moz-box-shadow: 0 4px 0 #e87408;
+	-webkit-box-shadow: 0 4px 0 #e87408;
 	border-radius: 4px;
 	-moz-border-radius: 4px;
 	-webkit-border-radius: 4px;
 }
 
 .btn:hover  {
-	background-color: #f46f6a;
+	background-color: #ffa40e; /* ffa40e */
 }
 
 .btn:active  {
 	top: 1px;
-	box-shadow: 0 3px 0 #ca4641;
-	-moz-box-shadow: 0 3px 0 #ca4641;
-	-webkit-box-shadow: 0 3px 0 #ca4641;
+	box-shadow: 0 3px 0 #e87408;
+	-moz-box-shadow: 0 3px 0 #e87408;
+	-webkit-box-shadow: 0 3px 0 #e87408;
 }
 
 
@@ -1449,7 +1452,7 @@ section.page  {
 }
 
 #contacts .get-in-touch input.error,  #contacts .get-in-touch textarea.error  {
-	background-color: #ef6661;
+	background-color: #FF7908;
 }
 
 #contacts .get-in-touch textarea  {
@@ -1684,7 +1687,7 @@ section.page  {
 
 .bar li span  {
 	position: relative;
-	background-color: #ef6661;
+	background-color: #FF7908;
 }
 
 .bar li span strong  {
