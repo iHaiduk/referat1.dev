@@ -2126,3 +2126,6 @@ section.page  {
 .list.rb-grid {
 	margin: 25px 0 60px 0;
 }
+#pgwModal .pm-body{
+	padding: 0 60px 10px 10px;
+}

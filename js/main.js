@@ -43,14 +43,18 @@ var App = {
 		// init the portfolio
 		App.portfolio.start();
 
-		$("#carousel .colored").click(function(){
+		$(".modal").click(function(e){
+			e.preventDefault()
+			var href = $(this).attr("href")
+			console.log(href)
 			$.pgwModal({
-				url: '/html/_payments.html',
+				url: href,
 				loadingContent: '<span style="text-align:center">Loading in progress</span>',
 				closable: false,
 				titleBar: false,
-				maxWidth: "80%"
+				maxWidth: "60%"
 			});
+			return 0;
 		});
 		
 	},
